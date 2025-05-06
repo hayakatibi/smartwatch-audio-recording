@@ -1,0 +1,49 @@
+menu "Example Configuration"
+    config LV_MEM_SIZE_KILOBYTES
+        int "Size of the memory used by `lv_mem_alloc` in kilobytes (>= 2kB)"
+        default 48
+    config BT_ENABLED
+        bool "Select this option to enable Bluetooth"
+        default y 
+
+    config BT_BLE_50_FEATURES_SUPPORTED
+        bool "Enabling this option activates BLE 5.0 features"
+        default y 
+        
+    config BT_BLE_42_FEATURES_SUPPORTED
+        bool "This enables BLE 4.2 features."
+        default y 
+    
+    config EXAMPLE_SAMPLE_RATE
+        int "Audio sample rate (Hz)"
+        range 8000 48000
+        default 16000
+        help
+            Select audio sampling rate
+
+    config EXAMPLE_BIT_SAMPLE
+        int "Bits per sample"
+        range 16 32
+        default 16
+        help
+            Number of bits per audio sample
+
+    config EXAMPLE_REC_TIME
+        int "Recording duration (seconds)"
+        range 1 300
+        default 10
+        help
+            Maximum recording duration
+
+    config EXAMPLE_I2S_CLK_GPIO
+        int "I2S Clock GPIO Number"
+        default 14
+        help
+            GPIO number for I2S CLK signal
+
+    config EXAMPLE_I2S_DATA_GPIO
+        int "I2S Data GPIO Number"
+        default 16
+        help
+            GPIO number for I2S Data signal
+endmenu
