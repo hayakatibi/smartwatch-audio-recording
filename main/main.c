@@ -59,7 +59,7 @@ void app_main(void)
     LCD_Init();
     LVGL_Init();
     ui_init();
-    Audio_Init();
+    //Audio_Init();
     sd_card_initialization();
     start_recording();
 }

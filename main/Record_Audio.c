@@ -97,7 +97,12 @@ void record_wav(uint32_t rec_time)
     }
 
     // Write WAV header
-    fwrite(&wav_header, sizeof(wav_header), 1, f);
+    size_t written = fwrite(&wav_header, sizeof(wav_header), 1, f);
+    if (written != 1) {
+        ESP_LOGE(TAG, "Header write failed");
+        fclose(f);
+        return;
+    }
 
     // Recording loop
     ESP_LOGI(TAG, "Starting recording...");
@@ -114,7 +119,7 @@ void record_wav(uint32_t rec_time)
             break;
         }
     }
-
+    fflush(f);
     // Cleanup
     fclose(f);
     ESP_LOGI(TAG, "Recording finished, wrote %d bytes", flash_wr_size);
@@ -122,7 +127,7 @@ void record_wav(uint32_t rec_time)
     // Unmount SD card
     esp_vfs_fat_sdcard_unmount(SD_MOUNT_POINT, card);
     ESP_LOGI(TAG, "SD card unmounted");
-    spi_bus_free(host.slot);
+    //spi_bus_free(host.slot);
 }
 void init_microphone(void){
     // I2S channel configuration

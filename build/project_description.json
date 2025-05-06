@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "ESP32-S3-Touch-LCD-1.46-Test",
-    "project_version":    "ece3bd3-dirty",
+    "project_version":    "e3c425e-dirty",
     "project_path":       "C:/Users/hayaa/Desktop/SmartWatchForChildSafety-Capstone-Project/DashboardApplication",
     "idf_path":           "C:/Users/hayaa/esp/v5.3.3/esp-idf",
     "build_dir":          "C:/Users/hayaa/Desktop/SmartWatchForChildSafety-Capstone-Project/DashboardApplication/build",
