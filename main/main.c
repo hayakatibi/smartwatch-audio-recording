@@ -59,7 +59,9 @@ void app_main(void)
     LCD_Init();
     LVGL_Init();
     ui_init();
-    //Audio_Init();
+    //Audio_Init(); // no need to initialize this it's speaker
+    // both of the following functions are in the same folder we can edit that later
+    // like adding the start_recording call to sd card initialization (optional)
     sd_card_initialization();
     start_recording();
 }
